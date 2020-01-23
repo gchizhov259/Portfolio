@@ -40,4 +40,29 @@ html(lang='ru')
                 | Чижов
             .intro__scroll-btn
               a.scroll-btn Скролл
-                +icon('scroll', 'scroll-icon')
+                //- +icon('scroll', 'scroll-icon')
+        section.about
+          .about__left
+            .user
+              .user__avatar
+                img.avatar(src="", alt="")
+              .user__text
+                -
+                  var rows = [
+                    ["Проживаю", "Краснотурьинск"],
+                    ["Возраст", "26 лет"],
+                    ["Родился", "23 октября"]
+                  ];
+
+                table.user__data
+                  table.user__data-table
+                    each row in rows
+                      tr.user__data-row
+                        each cell in row
+                          td #{cell}
+
+          .about__right
+            .about__welcome-text
+            .about__username
+            .about__desc
+            .about__ps
