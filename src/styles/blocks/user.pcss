@@ -1,4 +1,4 @@
-.avatar {
+/* .avatar {
   width: 200px;
   height: 200px;
   overflow: hidden;
@@ -9,4 +9,31 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+} */
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user__avatar {
+  margin-bottom: 70px;
+}
+
+.user__data-table {
+  font-family: "open-sans-sebo";
+  font-size: 16px;
+}
+
+.user__data-cell {
+  padding: 10px 0 5px 60px;
+
+  &:first-child {
+    opacity: 0.15;
+  }
+
+  &:last-child {
+    font-family: "open-sans-sebo";
+    color: #ffffff;
+  }
 }

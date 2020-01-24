@@ -7,142 +7,16 @@ html(lang='ru')
     meta(http-equiv='X-UA-Compatible' content='ie=edge')
     title Portfolio | main page
   body
-  
-    .wrapper
-      .welcome-section
-        section.welcome
-          .container.welcome__container
-            header.welcome__header
-              .welcome__logo
-                .logo ГЧ
-              .welcome__menu
-                - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-                nav.navigation
-                  ul.navigation__menu
-                    each item in menu
-                      li.navigation__item
-                        a.navigation__link #{item}
-              .welcome__links
-                - var icons = ["insta", "vk", "github"];
-                ul.socials
-                  each item in icons
-                    li.socials__item
-                      a.socials__link(href='#')
-                        +icon(item, 'socials__icon')
-            .welcome__content
-              .welcome__title
-                | Личный сайт
-                br
-                | веб разработчика
-              h1.welcome__dev-name
-                | Григорий
-                br
-                | Чижов
-            .welcome__scroll-btn
-              a.scroll-btn Скролл
-                +icon('scroll', 'scroll-icon')
-        section.about
-          .container.about__container
-            .about__left
-              .user
-                .user__avatar
-                  .avatar
-                    +image("content/user.jpg", "user pic", "avatar__image")
-                .user__text
-                  -
-                    var rows = [
-                      ["Проживаю", "Краснотурьинск"],
-                      ["Возраст", "26 лет"],
-                      ["Родился", "23 октября"]
-                    ];
+    main.main__content
 
-                  table.user__data
-                    table.user__data-table
-                      each row in rows
-                        tr.user__data-row
-                          each cell in row
-                            td #{cell}
-            .about__right
-              .about__welcome-text
-                p Привет, меня зовут
-                .about__username Григорий Чижов
-                 p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-              .about__ps
-                | Этот сайт я сделал в рамках обучения в Школе онлайн образования
-                | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
-                | посмотрите, как тут всё классно и красиво!
-        section.progress
-          .container.progress__container
-            .progress__desc-block
-              h2.progress__title Чем я могу быть полезен вам
-              .progress__desc-text
-                | Этот сайт я сделал в рамках обучения в Школе онлайн образования
-                | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
-                | посмотрите, как тут всё классно и красиво!
-            .progress__skills-block
-              -
-                var items = [
-                  ["Front-end", ["HTML5", "CSS3", "JavaScript", "jquery и Vue.js"]],
-                  ["Workflow", ["Git", "Terminal", "Gulp", "Webpack"]]
-                ];
+      .bg-wrapper.bg-wrapper_top
+        include ./sections/welcome
+        include ./sections/about
+      include ./sections/progress
+      include ./sections/works
 
-              ul.skills-direct
-                each row in items
-                  li.skills-direct__item
-                    .skills-row
-                      .skills-row__title #{row[0]}
-                      .skills-row__content
-                        ul.skills
-                          each skill in row[1]
-                            li.skills__item
-                              .skill
-                                svg.skill__icon(viewBox='0 0 100 100' preserveAspectRatio='none')
-                                  circle.skill__circle.skill__circle--under(cx='50' cy='50' r='47' fill='transparent' stroke='#464341' stroke-width="1px")
-                                  circle.skill__circle.skill__circle--above(cx='50' cy='50' r='47' stroke-dasharray="90 180" fill='transparent' stroke='url(#gradient)' stroke-width="5px" style="transform-origin: center center;transform: rotate(-180deg);")
-                                  linearGradient(id='gradient' x1='0%' y1='0%' x2='100%' y2='0%')
-                                    stop(offset='0%' stop-color='#dc9322')
-                                    stop(offset='100%' stop-color='#d47e1d')
-                                .skill__title #{skill}
-        section.works
-          .container.works__container
-            h2.works__title Мои работы
-            .works__content
-              .slider
-                .slider__display
-                  .slider__display-pic
-                    +image('content/userfiles/1.jpg', 'slider-pic', 'slider-image')
-                  .slider__display-mini
-                    ul.slider-mini
-                      li.slider-mini__item.slider-mini__item--active
-                        .slider-mini__link
-                          +image('content/userfiles/1.jpg', 'slider-mini-pic', 'slider-image')
-                      li.slider-mini__item
-                        .slider-mini__link
-                          +image('content/userfiles/2.jpg', 'slider-mini-pic', 'slider-image')
-                      li.slider-mini__item
-                        .slider-mini__link
-                          +image('content/userfiles/3.jpg', 'slider-mini-pic', 'slider-image')
-                      li.slider-mini__item
-                        .slider-mini__link
-                          +image('content/userfiles/4.jpg', 'slider-mini-pic', 'slider-image')
-                  .slider__buttons
-                    .direction-btn.direction-btn--next
-                      +icon('arrow-down', 'slider-arrow')
-                    .direction-btn.direction-btn--prev
-                      +icon('arrow-down', 'slider-arrow')
-                .slider__number 2
-                .slider__info
-                  .slider__info__tags
-                    - var tags = ["HTML", "CSS", "Javascript"];
-                    ul.tags
-                      each item in tags
-                        li.tags__item #{item}
-                  .slider__info__desc
-                    h3.slider__info__desc-title Сайт школы образования
-                    article.slider__info__desc-text
-                      | Этот парень проходил обучение веб-разработке не где-то, а в
-                      | LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных
-                      | ночей!
-                  .slider__info-btns
-                    +icon('link', 'link-icon')
-                    a.slider__info-link Посмотреть сайт
+      //- .bg-wrapper.bg-wrapper_buttom
+      //-   include ./sections/reviews
+      //-   include ./sections/contact
+        
+    include ./sections/footer

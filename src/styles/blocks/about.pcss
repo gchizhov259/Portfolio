@@ -1,4 +1,4 @@
-.about {
+/* .about {
   display: flex;
   justify-content: space-between;
 }
@@ -9,4 +9,51 @@
 
 .about__right {
   width: 60%;
+} */
+.about {
+  padding: 5% 22% 15%;
+}
+
+.about__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__left {
+  width: 30%;
+}
+
+.about__right {
+  width: 530px;
+  font-family: "open-sans-sebo";
+  font-size: 16px;
+  line-height: 30px;
+  p {
+    opacity: 0.5;
+  }
+}
+
+.about__welcome-text {
+  margin-bottom: 100px;
+}
+
+.about__username {
+  font-family: "open-sans-bo";
+  margin: 30px 0;
+  font-size: 36px;
+  opacity: 1;
+}
+
+.about__ps {
+  font-family: "open-sans-it";
+  opacity: 0.5;
+  &::before {
+    content: "*";
+    display: block;
+    position: absolute;
+    color: $ps_star-color;
+    font-size: 48px;
+    transform: rotate(15deg) translate(-50px, 20px);
+    opacity: 0.2;
+  }
 }
