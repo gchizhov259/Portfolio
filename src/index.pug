@@ -103,4 +103,46 @@ html(lang='ru')
                                     stop(offset='0%' stop-color='#dc9322')
                                     stop(offset='100%' stop-color='#d47e1d')
                                 .skill__title #{skill}
-        
+        section.works
+          .container.works__container
+            h2.works__title Мои работы
+            .works__content
+              .slider
+                .slider__display
+                  .slider__display-pic
+                    +image('content/userfiles/1.jpg', 'slider-pic', 'slider-image')
+                  .slider__display-mini
+                    ul.slider-mini
+                      li.slider-mini__item.slider-mini__item--active
+                        .slider-mini__link
+                          +image('content/userfiles/1.jpg', 'slider-mini-pic', 'slider-image')
+                      li.slider-mini__item
+                        .slider-mini__link
+                          +image('content/userfiles/2.jpg', 'slider-mini-pic', 'slider-image')
+                      li.slider-mini__item
+                        .slider-mini__link
+                          +image('content/userfiles/3.jpg', 'slider-mini-pic', 'slider-image')
+                      li.slider-mini__item
+                        .slider-mini__link
+                          +image('content/userfiles/4.jpg', 'slider-mini-pic', 'slider-image')
+                  .slider__buttons
+                    .direction-btn.direction-btn--next
+                      +icon('arrow-down', 'slider-arrow')
+                    .direction-btn.direction-btn--prev
+                      +icon('arrow-down', 'slider-arrow')
+                .slider__number 2
+                .slider__info
+                  .slider__info__tags
+                    - var tags = ["HTML", "CSS", "Javascript"];
+                    ul.tags
+                      each item in tags
+                        li.tags__item #{item}
+                  .slider__info__desc
+                    h3.slider__info__desc-title Сайт школы образования
+                    article.slider__info__desc-text
+                      | Этот парень проходил обучение веб-разработке не где-то, а в
+                      | LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных
+                      | ночей!
+                  .slider__info-btns
+                    +icon('link', 'link-icon')
+                    a.slider__info-link Посмотреть сайт
