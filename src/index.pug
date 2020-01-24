@@ -10,37 +10,37 @@ html(lang='ru')
   
     .wrapper
       .welcome-section
-        section.intro
-          .container
-            header.intro__header
-              .intro__logo
+        section.welcome
+          .container.welcome__container
+            header.welcome__header
+              .welcome__logo
                 .logo ГЧ
-              .intro__menu
+              .welcome__menu
                 - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
                 nav.navigation
                   ul.navigation__menu
                     each item in menu
                       li.navigation__item
                         a.navigation__link #{item}
-              .intro__links
+              .welcome__links
                 - var icons = ["insta", "vk", "github"];
                 ul.socials
                   each item in icons
                     li.socials__item
                       a.socials__link(href='#')
                         +icon(item, 'socials__icon')
-            .intro__content
-              .intro__title
+            .welcome__content
+              .welcome__title
                 | Личный сайт
                 br
                 | веб разработчика
-              h1.intro__dev-name
+              h1.welcome__dev-name
                 | Григорий
                 br
                 | Чижов
-            .intro__scroll-btn
+            .welcome__scroll-btn
               a.scroll-btn Скролл
-                //- +icon('scroll', 'scroll-icon')
+                +icon('scroll', 'scroll-icon')
         section.about
           .container.about__container
             .about__left
@@ -62,11 +62,45 @@ html(lang='ru')
                         tr.user__data-row
                           each cell in row
                             td #{cell}
-
             .about__right
               .about__welcome-text
-              .about__username
-              .about__desc
-                | dfsdfsdfsgsrgweergergstgsetrgosetrljsnltijbnslitgnblstgnblistjngbslkjnblshtblvsjinrtfvilsertbglovseirvlsnthslitujbsliebvlisertnh;srtb
+                p Привет, меня зовут
+                .about__username Григорий Чижов
+                 p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
               .about__ps
+                | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+                | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
+                | посмотрите, как тут всё классно и красиво!
+        section.progress
+          .container.progress__container
+            .progress__desc-block
+              h2.progress__title Чем я могу быть полезен вам
+              .progress__desc-text
+                | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+                | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
+                | посмотрите, как тут всё классно и красиво!
+            .progress__skills-block
+              -
+                var items = [
+                  ["Front-end", ["HTML5", "CSS3", "JavaScript", "jquery и Vue.js"]],
+                  ["Workflow", ["Git", "Terminal", "Gulp", "Webpack"]]
+                ];
+
+              ul.skills-direct
+                each row in items
+                  li.skills-direct__item
+                    .skills-row
+                      .skills-row__title #{row[0]}
+                      .skills-row__content
+                        ul.skills
+                          each skill in row[1]
+                            li.skills__item
+                              .skill
+                                svg.skill__icon(viewBox='0 0 100 100' preserveAspectRatio='none')
+                                  circle.skill__circle.skill__circle--under(cx='50' cy='50' r='47' fill='transparent' stroke='#464341' stroke-width="1px")
+                                  circle.skill__circle.skill__circle--above(cx='50' cy='50' r='47' stroke-dasharray="90 180" fill='transparent' stroke='url(#gradient)' stroke-width="5px" style="transform-origin: center center;transform: rotate(-180deg);")
+                                  linearGradient(id='gradient' x1='0%' y1='0%' x2='100%' y2='0%')
+                                    stop(offset='0%' stop-color='#dc9322')
+                                    stop(offset='100%' stop-color='#d47e1d')
+                                .skill__title #{skill}
         
