@@ -1,0 +1,123 @@
+/* &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/content/4.png"),
+      url("../images/content/3.png"), url("../images/content/2.png"),
+      url("../images/content/1.png");
+    background-size: 23%, 9%, 7%, 25%;
+    background-repeat: no-repeat;
+    background-position: top right -2%, top 12% right 21%, top 16% right 11%,
+      top 22% right 11%;
+    transform: translate(0, -3%);
+    z-index: 0.1;
+  } */
+
+.reviews {
+  padding: 8.4% 0 0 0;
+}
+
+/* .reviews__container { */
+/* padding: 14vh 37.8% 0 6.5%; */
+/* } */
+
+.reviews__slider {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.reviews__title {
+  margin-bottom: 100px;
+  margin-right: 120px;
+  font-family: "open-sans-bo";
+  font-size: 36px;
+}
+
+.reviews__btns {
+  display: flex;
+  justify-content: space-between;
+  width: 133px;
+
+  .reviews-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid $reviews_arrow-color;
+    border-radius: 50%;
+
+    &--prev {
+      .slider-arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    .slider-arrow {
+      width: 6px;
+      height: 10px;
+      fill: $reviews_arrow-color;
+    }
+
+    &:hover {
+      background-color: rgba($reviews_arrow-color, 0.1);
+      border-width: 3px;
+      opacity: 0.7;
+    }
+  }
+}
+
+.reviews__comments {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment__wrapper {
+  display: flex;
+  margin-right: 80px;
+}
+
+.comment {
+  width: 325px;
+}
+
+.comment__quote-icon {
+  width: 75px;
+  height: 65px;
+  fill: $quote-color;
+  opacity: 0.05;
+  margin-right: 22px;
+}
+
+.comment__text {
+  font-family: "open-sans-sebo";
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  opacity: 0.5;
+}
+
+.comment__author {
+  display: flex;
+}
+
+.comment__author-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 30px;
+}
+
+.comment__author-name {
+  font-family: "open-sans-bo";
+  font-size: 18px;
+}
+
+.comment__author-pos {
+  font-family: "open-sans-sebo";
+  font-size: 16px;
+  opacity: 0.3;
+}

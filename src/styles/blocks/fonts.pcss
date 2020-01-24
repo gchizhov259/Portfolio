@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "open-sans-regular";
+  src: url("../fonts/subset-OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "open-sans-lit";
+  src: url("../fonts/subset-OpenSans-LightItalic.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "open-sans-boit";
+  src: url("../fonts/subset-OpenSans-BoldItalic.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "open-sans-sebo";
+  src: url("../fonts/subset-OpenSans-SemiBold.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "open-sans-li";
+  src: url("../fonts/subset-OpenSans-Light.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "open-sans-exbo";
+  src: url("../fonts/subset-OpenSans-ExtraBold.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "open-sans-exboit";
+  src: url("../fonts/subset-OpenSans-ExtraBoldItalic.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "open-sans-seboit";
+  src: url("../fonts/subset-OpenSans-SemiBoldItalic.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "open-sans-bo";
+  src: url("../fonts/subset-OpenSans-Bold.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "open-sans-it";
+  src: url("../fonts/subset-OpenSans-Italic.woff2") format("woff2"),
+    url("../fonts/subset-OpenSans-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@mixin opensans($style: semibold) {
+  font-family: "Arial", Helvetica, sans-serif;
+
+  @if $style==regular {
+    font-weight: "open-sans-regular", Helvetica, sans-serif;
+  }
+
+  @if $style==light-it {
+    font-family: "open-sans-lit", Helvetica, sans-serif;
+  }
+
+  @if $style==bold-it {
+    font-family: "open-sans-boit", Helvetica, sans-serif;
+  }
+
+  @if $style==semibold {
+    font-family: "open-sans-sebo", Helvetica, sans-serif;
+  }
+
+  @if $style==light {
+    font-family: "open-sans-li", Helvetica, sans-serif;
+  }
+
+  @if $style==extrabold {
+    font-family: "open-sans-exbo", Helvetica, sans-serif;
+  }
+
+  @if $style==extrabold-it {
+    font-family: "open-sans-exboit", Helvetica, sans-serif;
+  }
+
+  @if $style==semibold-it {
+    font-family: "open-sans-seboit", Helvetica, sans-serif;
+  }
+
+  @if $style==bold {
+    font-family: "open-sans-bo", Helvetica, sans-serif;
+  }
+
+  @if $style==italic {
+    font-family: "open-sans-it", Helvetica, sans-serif;
+  }
+}
