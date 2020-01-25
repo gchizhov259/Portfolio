@@ -1,30 +1,30 @@
 section.about
-          .container.about__container
-            .about__left
-              .user
-                .user__avatar
-                  .avatar
-                    +image("content/userfiles/user.jpg", "user pic", "avatar__image")
-                .user__text
-                  -
-                    var rows = [
-                      ["Проживаю", "Краснотурьинск"],
-                      ["Возраст", "26 лет"],
-                      ["Родился", "23 октября"]
-                    ];
+  .container.about__container
+    .about__left
+      .user
+        .user__avatar
+          .avatar
+            +image("content/userfiles/user.jpg", "user pic", "avatar__image")
+        .user__text
+          -
+            var rows = [
+              ["Проживаю", "Краснотурьинск"],
+              ["Возраст", "26 лет"],
+              ["Родился", "23 октября"]
+            ];
 
-                  table.user__data
-                    table.user__data-table
-                      each row in rows
-                        tr.user__data-row
-                          each cell in row
-                            td.user__data-cell #{cell}
-            .about__right
-              .about__welcome-text
-                p Привет, меня зовут
-                .about__username Григорий Чижов
-                 p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-              .about__ps
-                | Этот сайт я сделал в рамках обучения в Школе онлайн образования
-                | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
-                | посмотрите, как тут всё классно и красиво!
+          table.user__data
+            table.user__data-table
+              each row in rows
+                tr.user__data-row
+                  each cell in row
+                    td.user__data-cell #{cell}
+    .about__right
+      .about__welcome-text
+        p Привет, меня зовут
+        .about__username Григорий Чижов
+          p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+      .about__ps
+        | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+        | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
+        | посмотрите, как тут всё классно и красиво!
