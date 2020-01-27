@@ -16,12 +16,13 @@
   } */
 
 .reviews {
-  padding: 8.4% 0 0 0;
+  position: relative;
+  z-index: 2;
 }
 
-/* .reviews__container { */
-/* padding: 14vh 37.8% 0 6.5%; */
-/* } */
+.reviews__container {
+  padding: 8% 0 0 0.5%;
+}
 
 .reviews__slider {
   display: inline-flex;
@@ -82,6 +83,10 @@
 
 .comment {
   width: 325px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .comment__quote-icon {
