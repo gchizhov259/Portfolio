@@ -1,17 +1,20 @@
 .contact {
-  max-width: 1440px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .contact__container {
-  padding: 16.5vh 40.8% 19vh 6.5%;
+  padding: 11% 0 9.3% 0.5%;
+
+  @include desktop {
+    padding: 16% 0 9.3% 2.5%;
+  }
 }
 
 .contact__title {
-  margin-bottom: 10%;
-  font-size: 28.8px;
+  margin-bottom: 90px;
+  font-size: 36px;
   font-family: "open-sans-bo";
-  color: #ffffff;
 }
 
 .contact__form {
@@ -32,59 +35,73 @@
 
   &--textarea {
     width: 100%;
+    margin-bottom: 0;
+
   }
 }
 
 .contact__form-icon {
   width: 30px;
   height: 30px;
-  fill: #ffffff;
-  opacity: 0.2;
+  fill: $form_icon-color;
+  opacity: 0.3;
   position: absolute;
-  transform: translate(0, 30px);
+  transform: translateY(37px);
+
+  @include desktop {
+    margin-bottom: 33px;
+  }
 }
 
 .contact__form-row__block-label {
   font-family: "open-sans-sebo";
-  font-size: 12.8px;
+  font-size: 16px;
   margin-bottom: 5px;
-  margin-left: 40px;
-  opacity: 0.7;
+  margin-left: 46px;
+  opacity: 0.3;
 }
 
 .contact__form-row__block-input {
   width: inherit;
   border: none;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px $form_border-color;
   background: none;
   padding: 7px 0;
   padding-left: 42px;
-  color: #ffffff;
   font-family: "open-sans-bo";
-  font-size: 14.4px;
-  line-height: 30px;
+  font-size: 18px;
+  color: $text-color;
+  line-height: 36px;
+  padding-bottom: 10px;
   resize: none;
 
-  /* &:focus {
-    outline-color: $orange-color;
-  } */
+  &:hover,
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid $orange-color;
+  }
 
   &::-webkit-input-placeholder {
-    color: #ffffff;
+    color: $text-color;
     font-family: "open-sans-bo";
   }
 }
 
 .contact__form-row__button {
   margin-top: 50px;
+
+  @include desktop {
+    margin-top: 25px;
+    margin-bottom: 6%;
+  }
 }
 
 .contact__form__send-btn {
-  width: 290px;
-  height: 66px;
+  width: 350px;
+  height: 85px;
   background-color: $orange-color;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $text-color;
   font-family: "open-sans-bo";
-  font-size: 14.4px;
+  font-size: 17px;
 }
