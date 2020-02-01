@@ -9,14 +9,21 @@ html(lang='ru')
   body
     main.main__content
 
-      .bg-wrapper.bg-wrapper_top
-        include ./sections/welcome
-        include ./sections/about
+      .parallax-wrapper
+        include ./sections/parallax-top
+        .welcome-section
+          include ./sections/welcome
+          include ./sections/about
       include ./sections/progress
       include ./sections/works
 
-      //- .bg-wrapper.bg-wrapper_buttom
-      //-   include ./sections/reviews
-      //-   include ./sections/contact
+      .bg-wrapper.bg-wrapper_bottom
+        .leaf
+          +image('content/4.png', 'leaf', 'leaf-image-4')
+          +image('content/3.png', 'leaf', 'leaf-image-3')
+          +image('content/2.png', 'leaf', 'leaf-image-2')
+          +image('content/1.png', 'leaf', 'leaf-image-1')
+        include ./sections/reviews
+        include ./sections/contact
         
     include ./sections/footer

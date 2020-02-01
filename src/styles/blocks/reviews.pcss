@@ -16,12 +16,17 @@
   } */
 
 .reviews {
-  padding: 8.4% 0 0 0;
+  position: relative;
+  z-index: 2;
 }
 
-/* .reviews__container { */
-/* padding: 14vh 37.8% 0 6.5%; */
-/* } */
+.reviews__container {
+  padding: 8% 0 0 0.5%;
+
+  @include desktop {
+    padding: 11.5% 0 0 2.5%;
+  }
+}
 
 .reviews__slider {
   display: inline-flex;
@@ -30,7 +35,7 @@
 
 .reviews__title {
   margin-bottom: 100px;
-  margin-right: 120px;
+  margin-right: 8.2%;
   font-family: "open-sans-bo";
   font-size: 36px;
 }
@@ -78,10 +83,22 @@
 .comment__wrapper {
   display: flex;
   margin-right: 80px;
+
+  @include desktop {
+    margin-right: 20px;
+  }
 }
 
 .comment {
   width: 325px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include desktop {
+    width: 360px;
+  }
 }
 
 .comment__quote-icon {
@@ -90,6 +107,10 @@
   fill: $quote-color;
   opacity: 0.05;
   margin-right: 22px;
+
+  @include tablets {
+    transform: scale(0.5);
+  }
 }
 
 .comment__text {

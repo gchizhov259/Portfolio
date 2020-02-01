@@ -11,16 +11,35 @@
   width: 60%;
 } */
 .about {
-  padding: 5% 22% 15%;
+  padding: 5% 0% 15%;
+
+  @include desktop {
+    margin-right: 5%;
+  }
+
+  @include tablets {
+    margin-left: 7%;
+    padding-right: 7%;
+  }
+  
 }
 
 .about__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .about__left {
-  width: 30%;
+  width: 290px;
+  margin-right: 145px;
+
+  @include desktop {
+    margin-right: 155px;
+  }
+
+  @include tablets {
+    margin-right: 13%;
+  }
 }
 
 .about__right {
@@ -30,6 +49,10 @@
   line-height: 30px;
   p {
     opacity: 0.5;
+  }
+
+  @include tablets {
+    width: auto;
   }
 }
 

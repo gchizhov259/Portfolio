@@ -1,11 +1,10 @@
-.works {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .works__container {
-  padding: 11.5% 0;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    padding: 0 2%;
+  }
 }
 
 .works__title {
@@ -13,4 +12,9 @@
   font-size: 36px;
   color: $dark_blue-color;
   margin-bottom: 80px;
+  margin-top: 13.5%;
+}
+
+.works__content {
+  margin-bottom: 13.5%;
 }
