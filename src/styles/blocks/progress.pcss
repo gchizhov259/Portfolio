@@ -20,10 +20,17 @@
     z-index: 1;
 
     @include desktop {
-      transform: scale(0.7) translate(-30%, 24%);
-      background-position: top 49% left;
       transform: scale(0.72) translate(-30%, 24.5%);
     }
+
+    @include tablets {
+      transform: rotate(-90deg) translate(10%);
+      background-position: top 50% left;
+      width: 150%;
+    }
+  }
+  @include tablets {
+    height: 100vh;
   }
 }
 
@@ -45,12 +52,22 @@
     margin-right: 23%;
     margin-bottom: 80px;
   }
+
+  @include tablets {
+    margin-right: auto;
+    text-align: center;
+  }
 }
 
 .progress__title {
   font-family: "open-sans-bo";
   font-size: 30px;
   margin-bottom: 55px;
+
+  @include tablets {
+    width: 60%;
+    margin: 0 auto;
+  }
 }
 
 .progress__desc-text {
@@ -81,6 +98,10 @@
   font-family: "open-sans-bo";
   font-size: 24px;
   margin-bottom: 40px;
+
+  @include tablets {
+    text-align: center;
+  }
 }
 
 .skills {

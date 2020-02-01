@@ -13,7 +13,7 @@
 .user {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .user__avatar {
@@ -35,5 +35,9 @@
   &:last-child {
     font-family: "open-sans-sebo";
     color: #ffffff;
+
+    @include tablets {
+      padding-left: 40px;
+    }
   }
 }
