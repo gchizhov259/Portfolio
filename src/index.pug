@@ -9,9 +9,11 @@ html(lang='ru')
   body
     main.main__content
 
-      .bg-wrapper.bg-wrapper_top
-        include ./sections/welcome
-        include ./sections/about
+      .parallax-wrapper
+        include ./sections/parallax-top
+        .welcome-section
+          include ./sections/welcome
+          include ./sections/about
       include ./sections/progress
       include ./sections/works
 
