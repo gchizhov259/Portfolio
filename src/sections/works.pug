@@ -1,43 +1,59 @@
-section.works
-          .container.works__container
-            h2.works__title Мои работы
-            .works__content
-              .slider
-                .slider__display
-                  .slider__display-pic
-                    +image('content/userfiles/1.jpg', 'slider-pic', 'slider-image')
-                  .slider__display-mini
-                    ul.slider-mini
-                      li.slider-mini__item.slider-mini__item--active
-                        .slider-mini__link
-                          +image('content/userfiles/1.jpg', 'slider-mini-pic', 'slider-image')
-                      li.slider-mini__item
-                        .slider-mini__link
-                          +image('content/userfiles/2.jpg', 'slider-mini-pic', 'slider-image')
-                      li.slider-mini__item
-                        .slider-mini__link
-                          +image('content/userfiles/3.jpg', 'slider-mini-pic', 'slider-image')
-                      li.slider-mini__item
-                        .slider-mini__link
-                          +image('content/userfiles/4.jpg', 'slider-mini-pic', 'slider-image')
-                  .slider__buttons
-                    button.direction-btn.direction-btn--next
-                      +icon('arrow-down', 'slider-arrow')
-                    button.direction-btn.direction-btn--prev
-                      +icon('arrow-down', 'slider-arrow')
-                .slider__number 2
-                .slider__info
-                  .slider__info__tags
-                    - var tags = ["HTML", "CSS", "Javascript"];
-                    ul.tags
-                      each item in tags
-                        li.tags__item #{item}
-                  .slider__info__desc
-                    h3.slider__info__desc-title Сайт школы образования
-                    article.slider__info__desc-text
-                      | Этот парень проходил обучение веб-разработке не где-то, а в
-                      | LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных
-                      | ночей!
-                  .slider__info-btns
-                    +icon('link', 'link-icon')
-                    a.slider__info-link Посмотреть сайт
+script(type="text/x-template")#slider-container
+  .slider
+    display(
+      :works="works",
+      :currentWork="currentWork"
+      @slide="handleSlide"
+    )
+    .slider__number {{currentIndex+1}}
+    info(
+      :currentWork="currentWork"
+    )
+
+script(type="text/x-template")#slider-display
+  .slider__display
+    .slider__display-pic
+      img(:src="currentWork.photo" alt="slider-pic" class="slider-image")
+    thumbs(
+      :works="works"
+      :currentWork="currentWork"
+    )
+    btns(
+      @slide="$emit('slide', $event)"
+    )
+
+
+script(type="text/x-template")#slider-thumbs
+  .slider__display-mini
+      ul.slider-mini
+        li.slider-mini__item.slider-mini__item(
+          v-for="work in works"
+          :class="{active:work.id === currentWork.id}"
+          )
+          .slider-mini__link
+            img(:src="work.photo" alt="slider-mini-pic" class="slider-mini_image")
+
+script(type="text/x-template")#slider-btns
+  .slider__buttons
+    button(@click.prevent="$emit('slide', 'next')" href="#").direction-btn
+      +icon('arrow-down', 'slider-arrow')
+    button(@click.prevent="$emit('slide', 'prev')" href="#").direction-btn.direction-btn_prev
+      +icon('arrow-down', 'slider-arrow')
+
+script(type="text/x-template")#slider-info
+  .slider__info
+    tags(
+      :tags="tagsArray"
+    )
+    .slider__info__desc
+      h3.slider__info__desc-title {{currentWork.title}}
+      article.slider__info__desc-text {{currentWork.desc}}
+    .slider__info-btns
+      +icon('link', 'link-icon')
+      a(:href="currentWork.link").slider__info-link Посмотреть сайт
+
+script(type="text/x-template")#slider-tags
+  .slider__info__tags
+    ul.tags
+        li.tags__item(v-for="tag in tags")
+          .tag {{tag}} 
