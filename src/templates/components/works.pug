@@ -1,0 +1,76 @@
+script(type="text/x-template")#slider-container
+  .slider
+    display(
+      :works="works",
+      :currentWork="currentWork"
+      :currentIndex="currentIndex"
+      @slide="handleSlide"
+      @setActiveSlide="setActiveSlide"
+      :disableItemForSmallScreen="disableItemForSmallScreen"
+    )
+    //- .slider__number {{currentIndex + 1}}
+    info(
+      :currentWork="currentWork"
+    )
+
+script(type="text/x-template")#slider-display
+  .slider__display(:num-slide="currentIndex + 1")
+    .slider__display-pic
+      img(:src="currentWork.photo" alt="slider-pic" class="slider-image")
+    thumbs(
+      :works="works"
+      :currentWork="currentWork"
+      @setActiveSlide="$emit('setActiveSlide', $event)"
+      :disableItemForSmallScreen="disableItemForSmallScreen"
+    )
+    btns(
+      :works="works",
+      @slide="$emit('slide', $event)"
+      :currentWork="currentWork"
+    )
+  
+
+script(type="text/x-template")#slider-thumbs
+  .slider__display-mini
+      ul.slider-mini
+        li.slider-mini__item(
+          v-for="work in works"
+          :class="{active:work.id === currentWork.id, disabled:work.id > 3 && disableItemForSmallScreen && !(work.id === currentWork.id)}"
+          @click="$emit('setActiveSlide', work.id)"
+          )
+          .slider-mini__link
+            .slider-mini__shade
+            img(:src="work.photo" alt="slider-mini-pic" class="slider-mini_image")
+
+script(type="text/x-template")#slider-btns
+  .slider__buttons
+    button.direction-btn(
+      @click.prevent="$emit('slide', 'next')" 
+      href="#"
+      :class="{disabled:currentWork.id === this.works.length}"
+      )
+      +icon('arrow-down', 'slider-arrow')
+    button.direction-btn.direction-btn_prev(
+      @click.prevent="$emit('slide', 'prev')" 
+      href="#"
+      :class="{disabled:currentWork.id === 1}"
+      )
+      +icon('arrow-down', 'slider-arrow')
+
+script(type="text/x-template")#slider-info
+  .slider__info
+    tags(
+      :tags="tagsArray"
+    )
+    .slider__info__desc
+      h3.slider__info__desc-title {{currentWork.title}}
+      article.slider__info__desc-text {{currentWork.desc}}
+    .slider__info-btns
+      +icon('link', 'link-icon')
+      a(:href="currentWork.link").slider__info-link Посмотреть сайт
+
+script(type="text/x-template")#slider-tags
+  .slider__info__tags
+    ul.tags
+        li.tags__item(v-for="tag in tags")
+          .tag {{tag}}
