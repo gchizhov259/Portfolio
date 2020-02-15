@@ -16,6 +16,8 @@
   "form_border-color": "#ffffff",
   "form_icon-color": "#ffffff",
   "footer_bg-color": "#222427",
+  "hamburger_menu-color": "#414c63",
+  "hamburger_menu_bg-color": "#ffffff",
   
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
