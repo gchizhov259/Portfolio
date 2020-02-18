@@ -1,5 +1,9 @@
 import Vue from "vue";
-import Flickity from "vue-flickity";
+import VueAwesomeSwiper from "vue-awesome-swiper";
+
+import "swiper/dist/css/swiper.css";
+
+Vue.use(VueAwesomeSwiper /* { default global options } */);
 
 const btns = {
   template: "#reviews-btns"
@@ -7,16 +11,15 @@ const btns = {
 
 const comments = {
   template: "#reviews-comments",
-  props: ["reviews", "flickityOptions"],
-  components: {
-    Flickity
-  }
+  props: ["reviews", "swiperOption"]
 };
 
 new Vue({
   el: "#reviews-component",
   template: "#reviews-container",
   components: {
+    LocalSwiper: VueAwesomeSwiper.swiper,
+    LocalSlide: VueAwesomeSwiper.swiperSlide,
     btns,
     comments
   },
