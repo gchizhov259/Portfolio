@@ -26,16 +26,13 @@ new Vue({
 
   data() {
     return {
-      reviews: [],
-      flickityOptions: {
-        initialIndex: 3,
-        prevNextButtons: false,
-        pageDots: false,
-        wrapAround: true,
-        groupCells: 2
-
-        // any options from Flickity can be used
-      }
+      swiperOption: {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      },
+      reviews: [] 
     };
   },
 
