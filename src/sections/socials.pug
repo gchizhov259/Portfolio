@@ -1,0 +1,6 @@
+- var icons = ["insta", "vk", "github"];
+ul.socials
+  each item in icons
+    li.socials__item
+      a.socials__link(href='#')
+        +icon(item, 'socials__icon')
