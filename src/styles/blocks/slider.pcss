@@ -1,64 +1,138 @@
 .slider {
   display: flex;
 
-  @include tablets {
+  @include desktop {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  @include tablets {
+    flex-direction: column;
     text-align: center;
   }
 }
 
 .slider__display {
   width: 66.2%;
+  margin-right: 160px;
   position: relative;
   z-index: 1;
 
   @include desktop {
-    width: 57.5%;
+    width: 630px;
+    height: 355px;
+    margin-right: 115px;
+    margin-bottom: 60px;
+  }
+
+  @include tablets {
+    width: auto;
+    margin-right: 14%;
+    height: 46vw;
+  }
+
+  @include phones {
+    margin-right: 0;
+    height: 58vw;
+  }
+
+  &:before {
+    content: attr(num-slide);
+    position: absolute;
+    font-family: "open-sans-exbo";
+    font-size: 400px;
+    line-height: 1;
+    color: $slider_number-color;
+    top: 6%;
+    left: 93.5%;
+    z-index: 0;
+
+    @include desktop {
+      font-size: 300px;
+      left: 92%;
+      margin-top: -9.5%;
+    }
+
+    @include tablets {
+      margin-top: -10.5%;
+    }
+    @include phones {
+      display: none;
+    }
   }
 }
 
 .slider__display-pic {
-  /* width: 975px; */
-  height: 550px;
+  height: 90%;
   position: relative;
   overflow: hidden;
+
+  @include desktop {
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.slider-image {
+  object-fit: cover;
+  object-position: top;
 }
 
 .slider__display-mini {
   position: absolute;
-  top: 70%;
+  bottom: 19%;
   right: 0;
   z-index: 2;
 
   @include desktop {
-    top: 57%;
+    bottom: inherit;
+    top: 62.8%;
   }
+
+  @include phones {
+    display: none;
+  }
+}
+
+.slider-mini__shade {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .slider-mini__item {
   width: 180px;
   height: 100px;
 
-  &.active,
-  &:hover {
+  &.active {
     .slider-mini__link {
-      /* outline-color: $orange-color; */
+      outline-color: $orange-color;
       outline-style: solid;
       outline-width: 3px;
       margin-right: 3px;
       transition: 0.3s;
       z-index: 1;
     }
-  }
 
-  @include desktop {
-    &:nth-child(4) {
+    .slider-mini__shade {
       display: none;
     }
-  }  
-}
+  }
 
+  &:hover {
+    .slider-mini__shade {
+      background: $orange-color;
+      opacity: 0.5;
+      transition: 0.3s;
+      z-index: 1;
+    }
+  }
+
+  &.disabled {
+    display: none;
+  }
+}
 
 .slider-mini {
   display: flex;
@@ -68,26 +142,32 @@
   position: relative;
   width: inherit;
   height: inherit;
-  overflow: hidden;
 }
 
-.slider-image {
+.slider-mini_image {
   min-width: 100%;
   height: 100%;
-  position: absolute;
   object-fit: cover;
   object-position: top;
+  position: absolute;
 }
 
 .slider__buttons {
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 70%;
+  bottom: 19%;
   right: -50px;
 
   @include desktop {
-    top: 57%;
+    bottom: inherit;
+    top: 62.8%;
+  }
+
+  @include phones {
+    right: 0;
+    top: initial;
+    bottom: 0;
   }
 }
 
@@ -106,67 +186,91 @@
   }
 
   .slider-arrow {
-    width: 6px;
+    width: 10px;
     height: 10px;
     fill: $slider_arrow-color;
-    fill-opacity: 0.3;
+    fill-opacity: 1;
   }
 
   &:hover {
+    background-color: $orange-color;
+    transition: 0.3s;
+  }
+
+  &.disabled {
     .slider-arrow {
-      fill-opacity: 1;
-      transition: 0.3s;
+      fill-opacity: 0.3;
+      pointer-events: none;
     }
   }
-}
-
-.slider__number {
-  /* content: attr(data-slide); */
-  display: flex;
-  margin-top: 16%;
-  margin-left: -60px;
-  margin-right: -13px;
-  /* width: 400px; */
-  font-family: "open-sans-exbo";
-  font-size: 400px;
-  line-height: 0;
-  color: $slider_number-color;
-  z-index: 0;
-
-  @include desktop {
-    font-size: 300px;
-    margin-right: -11px;
-    margin-top: 9.9%;
-    margin-left: -55px;
-  }
-
 }
 
 .slider__info {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 350px;
+  z-index: 1;
+
+  @include desktop {
+    margin-right: 4%;
+    min-width: 25%;
+  }
+
+  @include tablets {
+    max-width: 445px;
+    min-width: 50%;
+    margin: 0 auto;
+    padding-right: 6%;
+  }
+
+  @include phones {
+    padding-right: 0;
+    margin: 0 9.8%;
+  }
 }
 
 .slider__info__tags {
   margin-bottom: 40px;
+
+  @include tablets {
+    margin-bottom: 25px;
+  }
 }
 
 .tags {
   display: flex;
   list-style: none;
-  justify-content: center;
+
+  @include tablets {
+    justify-content: center;
+  }
 }
 
 .tags__item {
   font-family: "open-sans-sebo";
   font-size: 15px;
+  white-space: nowrap;
   margin-right: 10px;
   padding: 15px 20px;
   border-radius: 35px;
   color: $dark_blue-color;
-  opacity: 0.7;
   background-color: rgba($tags-color, 0.1);
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include phones {
+    font-size: 13px;
+    padding: 11px 15px;
+  }
+}
+
+.slider__info__desc {
+  @include phones {
+    text-align: left;
+  }
 }
 
 .slider__info__desc-title {
@@ -175,6 +279,16 @@
   line-height: 48px;
   color: $dark_blue-color;
   margin-bottom: 30px;
+
+  @include tablets {
+    margin-bottom: 25px;
+  }
+
+  @include phones {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
 }
 
 .slider__info__desc-text {
@@ -189,10 +303,19 @@
     hyphens: auto;
   }
 
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 25px;
+  }
 }
 
 .slider__info-btns {
   color: $links-color;
+
+  @include phones {
+    text-align: left;
+  }
 }
 
 .link-icon {
@@ -205,6 +328,10 @@
 .slider__info-link {
   font-family: "open-sans-bo";
   font-size: 18px;
+
+  @include tablets {
+    font-size: 14px;
+  }
 
   &:hover {
     border-bottom: 2px solid;
