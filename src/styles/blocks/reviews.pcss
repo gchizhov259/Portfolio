@@ -1,20 +1,3 @@
-/* &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: url("../images/content/4.png"),
-      url("../images/content/3.png"), url("../images/content/2.png"),
-      url("../images/content/1.png");
-    background-size: 23%, 9%, 7%, 25%;
-    background-repeat: no-repeat;
-    background-position: top right -2%, top 12% right 21%, top 16% right 11%,
-      top 22% right 11%;
-    transform: translate(0, -3%);
-    z-index: 0.1;
-  } */
-
 .reviews {
   position: relative;
   z-index: 2;
@@ -26,11 +9,23 @@
   @include desktop {
     padding: 11.5% 0 0 2.5%;
   }
+
+  @include tablets {
+    padding: 15.6% 0 0 2.7%;
+  }
 }
 
 .reviews__slider {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
+  max-width: 926px;
+
+  @include phones {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-width: 100%;
+  }
 }
 
 .reviews__title {
@@ -38,12 +33,32 @@
   margin-right: 8.2%;
   font-family: "open-sans-bo";
   font-size: 36px;
+
+  @include tablets {
+    font-size: 30px;
+    margin-right: 4.3%;
+    margin-bottom: 9.9%;
+  }
+
+  @include phones {
+    font-size: 24px;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
 }
 
 .reviews__btns {
   display: flex;
   justify-content: space-between;
   width: 133px;
+
+  @include tablets {
+    width: 120px;
+  }
+
+  @include phones {
+    margin-bottom: 25px;
+  }
 
   .reviews-btn {
     display: flex;
@@ -55,6 +70,13 @@
     border: 1px solid $reviews_arrow-color;
     border-radius: 50%;
 
+    &--disabled {
+      pointer-events: none;
+      transform: rotate(90deg);
+      opacity: 0.3;
+      transition: 0.3s;
+    }
+
     &--prev {
       .slider-arrow {
         transform: rotate(180deg);
@@ -62,7 +84,7 @@
     }
 
     .slider-arrow {
-      width: 6px;
+      width: 10px;
       height: 10px;
       fill: $reviews_arrow-color;
     }
@@ -82,15 +104,14 @@
 
 .comment__wrapper {
   display: flex;
-  margin-right: 80px;
 
-  @include desktop {
-    margin-right: 20px;
+  @include tablets {
+    justify-content: flex-start;
   }
 }
 
 .comment {
-  width: 325px;
+  width: 330px;
   height: 220px;
   display: flex;
   flex-direction: column;
@@ -98,6 +119,10 @@
 
   @include desktop {
     width: 360px;
+  }
+
+  @include phones {
+    height: 190px;
   }
 }
 
@@ -109,7 +134,8 @@
   margin-right: 22px;
 
   @include tablets {
-    transform: scale(0.5);
+    transform: scale(0.5) translate(0, -40%);
+    margin-right: -2%;
   }
 }
 
@@ -117,8 +143,13 @@
   font-family: "open-sans-sebo";
   font-size: 16px;
   line-height: 30px;
-  margin-bottom: 30px;
   opacity: 0.5;
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    max-width: 265px;
+  }
 }
 
 .comment__author {
@@ -130,15 +161,27 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 30px;
+
+  @include tablets {
+    margin-left: 20px;
+  }
 }
 
 .comment__author-name {
   font-family: "open-sans-bo";
   font-size: 18px;
+
+  @include tablets {
+    font-size: 16px;
+  }
 }
 
 .comment__author-pos {
   font-family: "open-sans-sebo";
   font-size: 16px;
   opacity: 0.3;
+
+  @include tablets {
+    font-size: 14px;
+  }
 }
