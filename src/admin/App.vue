@@ -1034,7 +1034,7 @@
       .header__main
         .header__main-container.container
           img(src=('../images/content/userfiles/user.jpg') alt='avatar').header__main__admin-avatar
-          .header__main__admin-name Дмитрий Чижов
+          .header__main__admin-name Григорий Чижов
           .header__main__title Панель администрирования
           button.header__main__logout-btn Выйти
       nav.header__nav
